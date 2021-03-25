@@ -1,0 +1,66 @@
+ROSTAPACK: RObust STAbility PACKage
+Version 2.2
+Licensed under the AGPLv3, Copyright (C) 2014-2019 Tim Mitchell
+
+ROSTAPACK (pronounced rost-a-pack, with rost rhyming with cost, frost, lost)
+is a library implemented in MATLAB for computing or approximating robust
+stability measures of linear dynamical systems with input and output.
+These measures include:
+
+-  the H-infinity norm (or L-infinity norm)
+-  the complex stability radius
+-  the real stability radius
+-  the spectral value set abscissa and radius
+-  the pseudospectral abscissa and radius.
+
+Version 2.2 includes both exact and approximation methods for the spectral
+value set (or pseudospectral) abscissa and radius measures.  It also includes
+scalable routines for approximating the H-infinity norm, complex stability
+radius and real stability radius.  Corresponding fast exact methods for
+computing the H-infinity norm or complex stability radius are planned for
+the v3.0 release.
+
+For the large-scale routines, where it would be prohibitively expensive to use
+exact methods, it is assumed that fast matrix-vector products can be done
+with the system matrix A (and to a much lesser degree, matrices B, C, and D).
+
+For the exact methods, support for structure-preserving eigensolvers from SLICOT
+is planned for a future release.
+
+
+ROSTAPACK is AGPL licensed.  See the LICENSE_INFO folder for more
+information.
+
+
+INSTALLATION:
+1) Add ROSTAPACK_DIR/main and/or ROSTAPACK_DIR/large-scale subfolders as desired
+   to the MATLAB search path.  If you frequently use ROSTAPACK, you may wish to
+   add these to your startup.m file.
+
+2) When using the large-scale routines, i.e. getStabRadBound and
+   specValSetBound, it is recommended to also download and install the latest
+   version of eigsPlus from:
+   http://www.timmitchell.com/software/eigsPlus
+
+   However, the ROSTAPACK large-scale routines can also be used without
+   installing eigsPlus by setting
+   >> opts.eig_solver_opts.use_default_eigs = true;
+
+   Note: eigsPlus requires that the md5 and patch commands be available
+   on the system path and callable from within MATLAB.  On Windows, one will
+   likely need to install these commands and do some setup work.
+
+DOCUMENTATION AND CITING:
+
+An overview of ROSTAPACK is given in USAGE_AND_CITING.pdf.  This PDF not
+only gives a high level overview of each ROSTAPACK routine but also provides
+instructions on how to cite ROSTAPACK and its methods.  Correspondingly,
+this PDF provides detailed citation information for the relevant papers
+describing all the underlying algorithms implemented in ROSTAPACK.
+
+Documentation for each routine is accessed with MATLAB via:
+>> help ROUTINE_NAME
+
+Additional documentation and the most recent ROSTAPACK release can be found at:
+
+http://www.timmitchell.com/software/ROSTAPACK/
